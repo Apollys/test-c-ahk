@@ -176,6 +176,8 @@ Code blocks
 
 In AHK, we are required to have a newline before the start of a code block, e.g.:
 
+Edit: I guess this isn't true anymore, according to documentation.  But are there some places that still require this syntax?
+
 ```ahk
 if (my_var = 5)
 {
