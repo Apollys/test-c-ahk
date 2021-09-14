@@ -197,3 +197,35 @@ if (my_var == 5) {
 ```
 
 ---
+
+### Typing
+
+A big advantage we can get here is static type-checking.  The basic types we would have are:
+ - `string`
+ - `int`
+ - `float`
+ - `bool`: `true` or `false`
+ - `array`
+ - `map`
+
+Note: `array` is more like C++'s `vector`, and `map` is actually an `unordered_map` from C++, but we use this more concise syntax for simplicity.
+
+To still allow for the power of loose typing when the user would like it, we allow one more type keyword: `dynamic`.
+For example:
+```
+dynamic x = 5;
+x = some_condition ? "hello" : 0;
+```
+
+Here we have a variable named `x`, initially containing an `int` value of 5, but whose variable type is `dynamic`, meaning it can hold a value of any type.
+Later on we assign it to either a `string` or and `int` depending on the truth value of `some_condition`.  Note that this kind of type-mismatched ternary is only allowed to be assigned to a `dynamic` value.
+
+Functions may also have `dynamic` return types.
+
+`array`s and `map`s specify the type of their elements using c++ template-style syntax:
+```
+array<int> value_array;
+map<string, int> word_frequency_map;
+```
+
+Ideally, we would also like to extend functions and user-defined classes to be templateable as well, depending on the complexity of implementation.
